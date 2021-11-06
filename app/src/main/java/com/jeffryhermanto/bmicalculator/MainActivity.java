@@ -49,6 +49,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void calculateBmi() {
-        Toast.makeText(MainActivity.this, "Calculating...", Toast.LENGTH_LONG).show();
+        int age = Integer.parseInt(ageEditText.getText().toString());
+        int feet = Integer.parseInt(feetEditText.getText().toString());
+        int inches = Integer.parseInt(inchesEditText.getText().toString());
+        int weight = Integer.parseInt(weightEditText.getText().toString());
+
+        int totalInches = (feet * 12) + inches;
+        double heightInMeters = totalInches * 0.0254;
+        double bmi = weight / (heightInMeters * heightInMeters);
+        String bmiTextResults = String.valueOf(bmi);
+
+        resultText.setText(bmiTextResults);
     }
 }
